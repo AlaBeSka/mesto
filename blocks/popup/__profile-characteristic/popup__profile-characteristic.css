@@ -1,0 +1,18 @@
+.popup__profile-characteristic {
+  width: 358px;
+  height: 27px;
+  padding: 0;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  margin: 15px 0 24px;
+}
+
+@media screen and (max-width: 770px) {
+  .popup__profile-characteristic {
+    width: 238px;
+    margin: 15px 0 22px;
+  }
+}

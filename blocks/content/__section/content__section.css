@@ -1,0 +1,33 @@
+.content__section {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 200px;
+  margin: 0 auto;
+  /* border: 1px solid red; */
+}
+
+@media screen and (max-width: 1152px) {
+  .content__section{
+    padding: 0 150px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .content__section{
+    padding: 0 100px;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .content__section{
+    padding: 0 50px;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .content__section{
+    padding: 0 19px;
+    min-width: 282px;
+    min-height: 286px;
+  }
+}

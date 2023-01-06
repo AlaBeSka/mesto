@@ -1,0 +1,10 @@
+.element {
+  max-width: 282px;
+  max-height: 361px;
+  font-family: "Inter", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  border-radius: 10px;
+  overflow: hidden;
+}
