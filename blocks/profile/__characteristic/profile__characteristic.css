@@ -1,5 +1,4 @@
 .profile__characteristic {
-  max-height: 22px;
   width: 336px;
   margin: 4px 0 0 0;
   font-style: normal;
@@ -14,7 +13,6 @@
 @media screen and (max-width: 770px ) {
   .profile__characteristic  {
     width: 100%;
-    min-height: 14px;
     text-align: center;
     margin-top: 7px;
     font-size: 14px;

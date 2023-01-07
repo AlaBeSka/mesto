@@ -17,7 +17,10 @@
     <main class="content page__content">
       <section class="profile content__section">
         <div class="profile__card">
-          <div class="profile__avatar"></div>
+          <img
+          src="./images/profile__image.jpg"
+          alt="аватарка"
+          class="profile__avatar">
           <div class="profile__info">
             <div class="profile__row">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -26,7 +29,7 @@
             <p class="profile__characteristic">Исследователь океана</p>
           </div>
         </div>
-        <button class="profile__add-button"></button>
+        <button class="profile__add-button" type="button"></button>
       </section>
       <section class="elements">
         <article class="element">
@@ -36,7 +39,7 @@
             class="element__photo">
           <div class="element__place">
             <h2 class="element__place-name">Карачаевск</h2>
-            <button class="element__button-like"></button>
+            <button class="element__button-like" type="button"></button>
           </div>
         </article>
         <article class="element">
@@ -46,7 +49,7 @@
             class="element__photo">
           <div class="element__place">
             <h2 class="element__place-name">Гора Эльбрус</h2>
-            <button class="element__button-like"></button>
+            <button class="element__button-like" type="button"></button>
           </div>
         </article>
         <article class="element">
@@ -56,7 +59,7 @@
             class="element__photo">
           <div class="element__place">
             <h2 class="element__place-name">Домбай</h2>
-            <button class="element__button-like"></button>
+            <button class="element__button-like" type="button"></button>
           </div>
         </article>
         <article class="element">
@@ -66,7 +69,7 @@
             class="element__photo">
           <div class="element__place">
             <h2 class="element__place-name">Гора Эльбрус</h2>
-            <button class="element__button-like"></button>
+            <button class="element__button-like" type="button"></button>
           </div>
         </article>
         <article class="element">
@@ -76,7 +79,7 @@
             class="element__photo">
           <div class="element__place">
             <h2 class="element__place-name">Домбай</h2>
-            <button class="element__button-like"></button>
+            <button class="element__button-like" type="button"></button>
           </div>
         </article>
         <article class="element">
@@ -86,7 +89,7 @@
             class="element__photo">
           <div class="element__place">
             <h2 class="element__place-name">Карачаево-черкесская республика</h2>
-            <button class="element__button-like"></button>
+            <button class="element__button-like" type="button"></button>
           </div>
         </article>
       </section>
@@ -96,25 +99,29 @@
     </footer>
     <section class="popup" id="popup">
       <div class="popup__edit-container">
-        <p class="popup__text">Редактировать профиль</p>
-        <button class="popup__close-button" id="popup__close-button"></button>
-        <form class="popup__form">
+        <h2 class="popup__text">Редактировать профиль</h2>
+        <button class="popup__close-button" id="popup__close-button" type="button"></button>
+        <form class="popup__form" name="popup-edit-form" id="popup-edit-form">
           <input
             type="text"
-            class="popup__profile-name"
+            class="popup__input popup__input_type_name"
             id="popup__profile-name"
-            value="Жак-Ив Кусто">
+            value="Жак-Ив Кусто"
+            placeholder="Ваше имя"
+            name="popup-edit-profile-name">
           <input
             type="text"
-            class="popup__profile-characteristic"
+            class="popup__input popup__input_type_characteristic"
             id="popup__profile-characteristic"
-            value="Исследователь океана">
+            value="Исследователь океана"
+            placeholder="Ваша профессия"
+            name="popup-edit-profile-characteristic">
           <button class="popup__button-saved" id="button-saved" type="submit">
             Сохранить
           </button>
         </form>
       </div>
     </section>
-    <script src="./scripts/edit.js"></script>
+    <script src="./scripts/index.js"></script>
   </body>
 </html>

@@ -1,5 +1,6 @@
 .element__photo {
   object-fit: cover;
+  object-position: center;
+  height: 282px;
   width: 100%;
-  position: center;
 }

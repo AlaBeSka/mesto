@@ -3,30 +3,33 @@
   width: 100%;
   padding: 0 200px;
   margin: 0 auto;
-  /* border: 1px solid red; */
 }
 
 @media screen and (max-width: 1152px) {
   .content__section{
-    padding: 0 150px;
+    padding-left: 150px;
+    padding-right: 150px;
   }
 }
 
 @media screen and (max-width: 1000px) {
   .content__section{
-    padding: 0 100px;
+    padding-left: 100px;
+    padding-right: 100px;
   }
 }
 
 @media screen and (max-width: 860px) {
   .content__section{
-    padding: 0 50px;
+    padding-left: 50px;
+    padding-right: 50px;
   }
 }
 
 @media screen and (max-width: 770px) {
   .content__section{
-    padding: 0 19px;
+    padding-left: 19px;
+    padding-right: 19px;
     min-width: 282px;
     min-height: 286px;
   }

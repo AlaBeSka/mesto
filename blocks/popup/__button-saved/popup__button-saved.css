@@ -10,6 +10,8 @@
   line-height: 22px;
   text-align: center;
   color: #FFFFFF;
+  border: none;
+  transition: opacity 0.5s linear;
 }
 
 @media screen and (max-width: 770px) {
@@ -21,4 +23,9 @@
     font-size: 14px;
     line-height: 17px;
   }
+}
+
+.popup__button-saved:hover {
+  opacity: .8;
+  cursor: pointer;
 }

@@ -3,9 +3,10 @@ const popupCloseButtonElement = popupElement.querySelector('#popup__close-button
 const popupOpenButtonElement = document.querySelector('.profile__edit-button');
 const nameInput = popupElement.querySelector('#popup__profile-name');
 const jobInput = popupElement.querySelector('#popup__profile-characteristic');
-const ProfileNameElement = document.querySelector('.profile__name');
-const ProfileCharacteristicElement = document.querySelector('.profile__characteristic');
+const profileNameElement = document.querySelector('.profile__name');
+const profileCharacteristicElement = document.querySelector('.profile__characteristic');
 const popupSaveButtonElement = popupElement.querySelector('#button-saved');
+const formElement = popupElement.querySelector('#popup-edit-form')
 
 const openPopup = function() {
   popupElement.classList.add('popup__opened');
@@ -23,12 +24,12 @@ const closePopupByClickOverlay = function(event) {
 
 function handleFormSubmit (evt) {
   evt.preventDefault();
-  ProfileNameElement.textContent = nameInput.value;
-  ProfileCharacteristicElement.textContent = jobInput.value;
+  profileNameElement.textContent = nameInput.value;
+  profileCharacteristicElement.textContent = jobInput.value;
+  closePopup();
 }
 
 popupOpenButtonElement.addEventListener('click', openPopup);
 popupCloseButtonElement.addEventListener('click', closePopup);
-popupElement.addEventListener('mousedown', closePopupByClickOverlay);
-popupSaveButtonElement.addEventListener('click', handleFormSubmit);
-popupSaveButtonElement.addEventListener('click', closePopup);
+popupElement.addEventListener('click', closePopupByClickOverlay);
+formElement.addEventListener('submit', handleFormSubmit);

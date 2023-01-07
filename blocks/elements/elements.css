@@ -10,6 +10,7 @@
 
 @media screen and (max-width: 500px) {
   .elements {
-    padding: 0 19px;
+    padding-left: 19px;
+    padding-right: 19px;
   }
 }
