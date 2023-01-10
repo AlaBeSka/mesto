@@ -28,6 +28,7 @@
 @import url(../blocks/element/__photo/element__photo.css);
 @import url(../blocks/element/__place/element__place.css);
 @import url(../blocks/element/element.css);
+@import url(../blocks/element/__button-like/_active/element__button-like_active.css);
 /* footer */
 @import url(../blocks/footer/__text/footer__text.css);
 @import url(../blocks/footer/footer.css);

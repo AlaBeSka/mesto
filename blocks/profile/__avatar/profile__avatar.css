@@ -4,6 +4,8 @@
   border-radius: 50%;
   overflow: hidden;
   margin-right: 15px;
+  object-fit: cover;
+  object-position: center;
 }
 
 @media screen and (max-width: 770px) {
