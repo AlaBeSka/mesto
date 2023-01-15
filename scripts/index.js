@@ -9,13 +9,13 @@ const popupSaveButtonElement = popupElement.querySelector('#button-saved');
 const formElement = popupElement.querySelector('#popup-edit-form')
 
 const openPopup = function() {
-  popupElement.classList.add('popup__opened');
+  popupElement.classList.add('popup__is-opened');
   nameInput.value = profileNameElement.textContent;
   jobInput.value = profileCharacteristicElement.textContent;
 }
 
 const closePopup = function() {
-  popupElement.classList.remove('popup__opened');
+  popupElement.classList.remove('popup__is-opened');
 }
 
 const closePopupByClickOverlay = function(event) {
@@ -37,26 +37,4 @@ popupCloseButtonElement.addEventListener('click', closePopup);
 popupElement.addEventListener('click', closePopupByClickOverlay);
 formElement.addEventListener('submit', handleFormSubmit);
 
-const likeButtonElements = document.querySelectorAll('.element__button-like');
-const likeButtonElement0 = likeButtonElements[0];
-const likeButtonElement1 = likeButtonElements[1];
-const likeButtonElement2 = likeButtonElements[2];
-const likeButtonElement3 = likeButtonElements[3];
-const likeButtonElement4 = likeButtonElements[4];
-const likeButtonElement5 = likeButtonElements[5];
 
-const likeButtonActive = function (btn) {
-  btn.classList.toggle('element__button-like_active')
-  }
-likeButtonElement0.addEventListener("click", function (btn) {
-  likeButtonActive(likeButtonElement0)});
-likeButtonElement1.addEventListener("click", function (btn) {
-  likeButtonActive(likeButtonElement1)});
-likeButtonElement2.addEventListener("click", function (btn) {
-  likeButtonActive(likeButtonElement2)});
-likeButtonElement3.addEventListener("click", function (btn) {
-  likeButtonActive(likeButtonElement3)});
-likeButtonElement4.addEventListener("click", function (btn) {
-  likeButtonActive(likeButtonElement4)});
-likeButtonElement5.addEventListener("click", function (btn) {
-  likeButtonActive(likeButtonElement5)});
