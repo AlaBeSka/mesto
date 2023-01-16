@@ -1,13 +1,14 @@
 .profile__info {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 336px;
+  align-items: flex-start;
+  max-width: 336px;
   margin-left: 15px;
 }
 
 @media screen and (max-width: 770px) {
   .profile__info {
+    align-items: center;
     text-align: center;
     width: 100%;
     margin-left: 0;
