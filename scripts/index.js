@@ -9,13 +9,13 @@ const popupSaveButtonElement = popupElement.querySelector('#button-saved');
 const formElement = popupElement.querySelector('#popup-edit-form')
 
 const openPopup = function() {
-  popupElement.classList.add('popup__is-opened');
+  popupElement.classList.add('popup_is-opened');
   nameInput.value = profileNameElement.textContent;
   jobInput.value = profileCharacteristicElement.textContent;
 }
 
 const closePopup = function() {
-  popupElement.classList.remove('popup__is-opened');
+  popupElement.classList.remove('popup_is-opened');
 }
 
 const closePopupByClickOverlay = function(event) {

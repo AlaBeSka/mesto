@@ -1,8 +1,7 @@
 .popup__button-saved {
-  padding: 0;
+  padding: 16px 0 14px;
   margin-top: 24px;
   width: 100%;
-  height: 50px;
   background: #000000;
   border-radius: 2px;
   font-weight: 400;
@@ -16,10 +15,9 @@
 
 @media screen and (max-width: 770px) {
   .popup__button-saved {
-    padding: 0;
+    padding: 14px 0 14px;
     margin-top: 23px;
     width: 100%;
-    height: 46px;
     font-size: 14px;
     line-height: 17px;
   }
