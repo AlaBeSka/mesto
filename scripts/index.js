@@ -114,6 +114,7 @@ const handleAddFormSubmit = (evt) => {
   placeUrlInput.value = '';
   closePopup(popupAddElement);
 };
+const lol = document.querySelector('.edit-container');
 
 formAddElement.addEventListener('submit', handleAddFormSubmit);
 popupOpenButtonElement.addEventListener('click', (pop)=>{
