@@ -8,5 +8,8 @@
   top: 0;
   left: 0;
   font-family: "Inter", Arial, sans-serif;
-  display: none;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility .5s, opacity .5s;
 }
