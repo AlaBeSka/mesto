@@ -1,5 +1,5 @@
 const popupElement = document.querySelector('#popup-edit');
-const popupCloseButtonElement = document.querySelectorAll('.popup__close-button');
+const popupCloseButtonElements = document.querySelectorAll('.popup__close-button');
 const popupOpenButtonElement = document.querySelector('.profile__edit-button');
 const nameInput = popupElement.querySelector('#popup__profile-name');
 const jobInput = popupElement.querySelector('#popup__profile-characteristic');
@@ -24,12 +24,6 @@ const closePopup = function(pop) {
   pop.classList.remove('popup_is-opened');
 }
 
-const closePopupByClickOverlay = function(event) {
-  if (event.target === event.currentTarget) {
-    closePopup(event.target);
-  }
-}
-
 function handleFormSubmit (evt) {
   evt.preventDefault();
   profileNameElement.textContent = nameInput.value;
@@ -37,6 +31,7 @@ function handleFormSubmit (evt) {
   closePopup(popupElement);
 }
 
+const popups = document.querySelectorAll('.popup');
 
 const cardList = document.querySelector('.elements');
 const placeNameInput = popupAddElement.querySelector('#popup-place-name');
@@ -108,7 +103,7 @@ initialCards.forEach((item) => {
   renderCard(item);
 });
 
-const formAddSubmitHandler = (evt) => {
+const handleAddFormSubmit = (evt) => {
   evt.preventDefault();
   const initialCard = {
     name: placeNameInput.value,
@@ -120,7 +115,7 @@ const formAddSubmitHandler = (evt) => {
   closePopup(popupAddElement);
 };
 
-formAddElement.addEventListener('submit', formAddSubmitHandler);
+formAddElement.addEventListener('submit', handleAddFormSubmit);
 popupOpenButtonElement.addEventListener('click', (pop)=>{
   openPopup(popupElement);
   changeName();
@@ -128,11 +123,14 @@ popupOpenButtonElement.addEventListener('click', (pop)=>{
 popupAddOpenButtonElement.addEventListener('click', (pop) => {
   openPopup(popupAddElement);
 });
-popupCloseButtonElement.forEach(btn => {
-  const popupClose = btn.closest('.popup')
-  btn.addEventListener('click', () => closePopup(popupClose))
-});
-popupElement.addEventListener('click', closePopupByClickOverlay);
-popupAddElement.addEventListener('click', closePopupByClickOverlay);
 formElement.addEventListener('submit', handleFormSubmit);
-photoPopup.addEventListener('click', closePopupByClickOverlay);
+popups.forEach((popup) => {
+  popup.addEventListener('mousedown', (evt) => {
+      if (evt.target.classList.contains('popup_is-opened')) {
+          closePopup(popup)
+      }
+      if (evt.target.classList.contains('popup__close-button')) {
+        closePopup(popup)
+      }
+  })
+})
