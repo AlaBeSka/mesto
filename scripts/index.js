@@ -1,8 +1,8 @@
 const popupElement = document.querySelector('#popup-edit');
 const popupCloseButtonElements = document.querySelectorAll('.popup__close-button');
 const popupOpenButtonElement = document.querySelector('.profile__edit-button');
-const nameInput = popupElement.querySelector('#popup__profile-name');
-const jobInput = popupElement.querySelector('#popup__profile-characteristic');
+const nameInput = popupElement.querySelector('#popup-profile-name');
+const jobInput = popupElement.querySelector('#popup-profile-characteristic');
 const profileNameElement = document.querySelector('.profile__name');
 const profileCharacteristicElement = document.querySelector('.profile__characteristic');
 const popupSaveButtonElement = popupElement.querySelector('#button-saved');
@@ -16,16 +16,28 @@ const changeName = () => {
   jobInput.value=profileCharacteristicElement.textContent;
 }
 
+const disableSubmit = (evt) => {
+  evt.preventDefault();
+}
+
 const openPopup = function(pop) {
   pop.classList.add('popup_is-opened');
+  document.addEventListener('keydown', closePopupByEscape);
 }
 
 const closePopup = function(pop) {
   pop.classList.remove('popup_is-opened');
+  document.removeEventListener('keydown', closePopupByEscape);
 }
 
+const closePopupByEscape = (evt) => {
+  if (evt.key === "Escape"){
+    closePopup(document.querySelector('.popup_is-opened'));
+  };
+};
+
 function handleFormSubmit (evt) {
-  evt.preventDefault();
+  disableSubmit(evt);
   profileNameElement.textContent = nameInput.value;
   profileCharacteristicElement.textContent = jobInput.value;
   closePopup(popupElement);
@@ -104,16 +116,28 @@ initialCards.forEach((item) => {
 });
 
 const handleAddFormSubmit = (evt) => {
-  evt.preventDefault();
+  disableSubmit(evt);
   const initialCard = {
     name: placeNameInput.value,
     link: placeUrlInput.value
   };
   renderCard(initialCard);
-  placeNameInput.value = '';
-  placeUrlInput.value = '';
+  formAddElement.reset();
   closePopup(popupAddElement);
 };
+
+
+
+popups.forEach((popup) => {
+  popup.addEventListener('mousedown', (evt) => {
+      if (evt.target.classList.contains('popup_is-opened')) {
+          closePopup(popup)
+      }
+      if (evt.target.classList.contains('popup__close-button')) {
+        closePopup(popup)
+      }
+  })
+});
 
 formAddElement.addEventListener('submit', handleAddFormSubmit);
 popupOpenButtonElement.addEventListener('click', (pop)=>{
@@ -124,13 +148,4 @@ popupAddOpenButtonElement.addEventListener('click', (pop) => {
   openPopup(popupAddElement);
 });
 formElement.addEventListener('submit', handleFormSubmit);
-popups.forEach((popup) => {
-  popup.addEventListener('mousedown', (evt) => {
-      if (evt.target.classList.contains('popup_is-opened')) {
-          closePopup(popup)
-      }
-      if (evt.target.classList.contains('popup__close-button')) {
-        closePopup(popup)
-      }
-  })
-})
+
