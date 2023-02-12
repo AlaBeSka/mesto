@@ -124,6 +124,8 @@ const handleAddFormSubmit = (evt) => {
   renderCard(initialCard);
   formAddElement.reset();
   closePopup(popupAddElement);
+  evt.submitter.classList.add('popup__button-saved_disabled')
+evt.submitter.disabled = true;
 };
 
 
@@ -132,10 +134,11 @@ popups.forEach((popup) => {
   popup.addEventListener('mousedown', (evt) => {
       if (evt.target.classList.contains('popup_is-opened')) {
           closePopup(popup)
-      }
-      if (evt.target.classList.contains('popup__close-button')) {
+      } else {
+        if (evt.target.classList.contains('popup__close-button')) {
         closePopup(popup)
       }
+    }
   })
 });
 
