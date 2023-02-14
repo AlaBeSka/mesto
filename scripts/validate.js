@@ -27,8 +27,7 @@ const handleFormInput = (evt, config) => {
   }
 };
 
-const toogleButton = (form, config) => {
-  const buttonSubmit = form.querySelector(config.submitButtonSelector);
+const toogleButton = (form, config, buttonSubmit) => {
   const isFormValid = form.checkValidity();
   buttonSubmit.disabled = !isFormValid;
   buttonSubmit.classList.toggle(config.inactiveButtonClass, !isFormValid);
@@ -36,21 +35,20 @@ const toogleButton = (form, config) => {
 
 const addInputListeners = (form, config) => {
   const inputList = Array.from(form.querySelectorAll(config.inputSelector));
+  const buttonSubmit = form.querySelector(config.submitButtonSelector);
+  toogleButton(form, config, buttonSubmit);
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', () => {
       handleFormInput(inputElement, config);
+      toogleButton(form, config, buttonSubmit);
     })
   });
-  form.addEventListener('input', () => {
-    toogleButton(form, config);
-  })
 };
 
 const enableValidation = (config) => {
   const formList = Array.from(document.querySelectorAll(config.formSelector));
   formList.forEach((form) => {
     addInputListeners(form, config);
-    toogleButton(form, config);
   });
 };
 
