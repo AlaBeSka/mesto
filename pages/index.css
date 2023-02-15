@@ -49,3 +49,5 @@
 @import url(../blocks/popup/__button-saved/_disabled/popup__button-saved_disabled.css);
 @import url(../blocks/popup/__input/_type/popup__input_type_error.css);
 @import url(../blocks/popup/__error/popup__error.css);
+@import url(../blocks/popup/_type/popup_type_photo.css);
+@import url(../blocks/popup/__image/popup__image.css);
