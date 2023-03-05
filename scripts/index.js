@@ -1,3 +1,7 @@
+import { initialCards, formValidationConfig as config } from "./Constants.js";
+import { Card } from "./Card.js";
+import { FormValidator } from "./FormValidator.js";
+
 const popupElement = document.querySelector('#popup-edit');
 const popupCloseButtonElements = document.querySelectorAll('.popup__close-button');
 const popupOpenButtonElement = document.querySelector('.profile__edit-button');
@@ -49,71 +53,27 @@ const cardList = document.querySelector('.elements');
 const placeNameInput = popupAddElement.querySelector('#popup-place-name');
 const placeUrlInput = popupAddElement.querySelector('#popup-place-url');
 const formAddElement = popupAddElement.querySelector('#popup-add-form');
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
 
-const template = document.querySelector('#template-card');
+
 const photoPopup = document.querySelector('#popup-photo');
 const photoOpenPopup = photoPopup.querySelector('.popup__image');
 const placeNameOpenPopup = photoPopup.querySelector('.popup__figcaption');
 
+// создание карточки
 
-const createCard = (cardName) => {
-  const card = template.content.querySelector('.element').cloneNode(true);
-  card.querySelector('.element__place-name').textContent = cardName.name;
-  card.querySelector('.element__photo').src = cardName.link;
-  card.querySelector('.element__photo').alt = cardName.name;
-  const changePhotoPopupValue = () => {
-    photoOpenPopup.src = cardName.link;
-    photoOpenPopup.alt =cardName.name;
-    placeNameOpenPopup.textContent = cardName.name;
-  };
-  const buttonForPhotoPopup = card.querySelector('.element__photo');
-  const deleteButton = card.querySelector('.element__button-delete');
-  deleteButton.addEventListener('click', () => {
-    card.remove();
-  });
-  const likeButton = card.querySelector('.element__button-like');
-  likeButton.addEventListener('click', () => {
-    likeButton.classList.toggle('element__button-like_active');
-  });
-  buttonForPhotoPopup.addEventListener('click', () => {
-    changePhotoPopupValue(placeNameOpenPopup, photoOpenPopup), openPopup(photoPopup);
-  });
-  return card;
+const handleCardclick = (name, link) => {
+  photoOpenPopup.src = link;
+  photoOpenPopup.alt = name;
+  placeNameOpenPopup.textContent = name;
+  openPopup(photoPopup);
 };
 
-const renderCard = (twoitems) => {
-  cardList.prepend(createCard(twoitems))
+const renderCard = (mesto) => {
+  const card = new Card (mesto, '#template-card', handleCardclick);
+  cardList.prepend(card.generateCard());
 };
 
-initialCards.forEach((item) => {
-  renderCard(item);
-});
+initialCards.forEach(renderCard);
 
 const handleAddFormSubmit = (evt) => {
   disableSubmit(evt);
@@ -125,8 +85,13 @@ const handleAddFormSubmit = (evt) => {
   formAddElement.reset();
   closePopup(popupAddElement);
   evt.submitter.classList.add('popup__button-saved_disabled')
-evt.submitter.disabled = true;
+  evt.submitter.disabled = true;
 };
+
+// валидация
+
+const formValidProfile = new FormValidator (formElement, config);
+const formValidCard = new FormValidator (formAddElement, config);
 
 
 
@@ -143,7 +108,7 @@ popups.forEach((popup) => {
 });
 
 formAddElement.addEventListener('submit', handleAddFormSubmit);
-popupOpenButtonElement.addEventListener('click', (pop)=>{
+popupOpenButtonElement.addEventListener('click', (pop)=> {
   openPopup(popupElement);
   changeName();
 });
@@ -151,4 +116,7 @@ popupAddOpenButtonElement.addEventListener('click', (pop) => {
   openPopup(popupAddElement);
 });
 formElement.addEventListener('submit', handleFormSubmit);
+
+formValidProfile.enableValidation();
+formValidCard.enableValidation();
 
