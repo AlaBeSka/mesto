@@ -84,8 +84,6 @@ const handleAddFormSubmit = (evt) => {
   renderCard(initialCard);
   formAddElement.reset();
   closePopup(popupAddElement);
-  evt.submitter.classList.add('popup__button-saved_disabled')
-  evt.submitter.disabled = true;
 };
 
 // валидация
