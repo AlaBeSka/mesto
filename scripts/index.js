@@ -84,6 +84,7 @@ const handleAddFormSubmit = (evt) => {
   renderCard(initialCard);
   formAddElement.reset();
   closePopup(popupAddElement);
+
 };
 
 // валидация
@@ -106,12 +107,14 @@ popups.forEach((popup) => {
 });
 
 formAddElement.addEventListener('submit', handleAddFormSubmit);
-popupOpenButtonElement.addEventListener('click', (pop)=> {
+popupOpenButtonElement.addEventListener('click', ()=> {
   openPopup(popupElement);
   changeName();
+  formValidProfile.disableSubmitButton();
 });
-popupAddOpenButtonElement.addEventListener('click', (pop) => {
+popupAddOpenButtonElement.addEventListener('click', () => {
   openPopup(popupAddElement);
+  formValidCard.disableSubmitButton();
 });
 formElement.addEventListener('submit', handleFormSubmit);
 

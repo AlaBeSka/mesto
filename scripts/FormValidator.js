@@ -44,6 +44,13 @@ export class FormValidator {
     });
   }
 
+  disableSubmitButton() {
+    this._toogleButton();
+    this._inputList.forEach((input) => {
+      this._hideInputError(input);
+    });
+  }
+
   enableValidation() {
     this._toogleButton();
     this._addInputListeners();
