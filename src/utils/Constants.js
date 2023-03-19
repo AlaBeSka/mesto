@@ -32,3 +32,18 @@ export const formValidationConfig = {
   inactiveButtonClass: 'popup__button-saved_disabled',
   inputErrorClass: 'popup__input_type_error',
 };
+
+
+
+export const popupOpenButtonElement = document.querySelector('.profile__edit-button');
+export const nameInput = document.querySelector('#popup-profile-name');
+export const jobInput = document.querySelector('#popup-profile-characteristic');
+export const profileNameElement = document.querySelector('.profile__name');
+export const profileCharacteristicElement = document.querySelector('.profile__characteristic');
+export const formElement = document.querySelector('#popup-edit-form');
+export const popupAddOpenButtonElement = document.querySelector('.profile__add-button');
+export const cardList = '.elements';
+export const formAddElement = document.querySelector('#popup-add-form');
+
+
+

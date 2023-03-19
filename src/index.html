@@ -7,18 +7,17 @@
       name="mesto"
       content="портфолио Ханбегова Егора-Хаджи на Яндекс.Практикуме">
     <meta name="author" content="Ханбегов Егор-Хаджи">
-    <link rel="stylesheet" href="./pages/index.css">
     <title>Место</title>
   </head>
   <body class="page">
     <header class="header">
-      <img src="./images/header__logo.svg" alt="логотип" class="header__logo">
+      <img src="<%=require('./images/header__logo.svg')%>" alt="логотип" class="header__logo">
     </header>
     <main class="content page__content">
       <section class="profile content__section">
         <div class="profile__card">
           <img
-          src="./images/profile__image.jpg"
+          src="<%=require('./images/profile__image.jpg')%>"
           alt="аватарка"
           class="profile__avatar">
           <div class="profile__info">
@@ -34,7 +33,7 @@
       <section class="elements"></section>
     </main>
     <footer class="footer">
-      <p class="footer__text">&copy;&nbsp;2020 Mesto Russia</p>
+      <p class="footer__text">&copy;&nbsp;2023 Mesto Russia</p>
     </footer>
     <section class="popup" id="popup-edit">
       <div class="popup__edit-container">
@@ -47,7 +46,7 @@
             id="popup-profile-name"
             value="Жак-Ив Кусто"
             placeholder="Ваше имя"
-            name="popup-edit-profile-name"
+            name="userName"
             required
             minlength="2"
             maxlength="40">
@@ -58,7 +57,7 @@
             id="popup-profile-characteristic"
             value="Исследователь океана"
             placeholder="Ваша профессия"
-            name="popup-edit-profile-characteristic"
+            name="userInfo"
             required
             minlength="2"
             maxlength="200">
@@ -121,6 +120,5 @@
       <figcaption class="popup__figcaption"></figcaption>
       </figure>
     </section>
-    <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>
