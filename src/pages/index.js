@@ -11,7 +11,7 @@ import { initialCards,
   profileCharacteristicElement,
   formElement,
   formAddElement,
-} from "../utils/Constants.js";
+} from "../utils/constants.js";
 import { Card } from "../components/Card.js";
 import { FormValidator } from "../components/FormValidator.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
@@ -30,9 +30,9 @@ const handleCardclick = (name, link) => {
   popupImage.open(name, link);
 }
 
-// render card
+// create card
 
-const renderCard = (mesto) => {
+const createCard = (mesto) => {
   const card = new Card(mesto, '#template-card', handleCardclick);
   return card.generateCard();
 }
@@ -43,18 +43,18 @@ const cardSection = new Section(
   {
     items: initialCards,
     renderer: (item) => {
-      cardSection.addItem(renderCard(item));
+      cardSection.addItem(createCard(item));
     }
   },
   cardList
 )
-cardSection.renderer();
+cardSection.renderItems();
 
 // create popup for card
 
 const popupAddCard = new PopupWithForm ('#popup-add', {
   handleSubmitForm: ({cardName, cardSrc}) => {
-    const card = renderCard({
+    const card = createCard({
       name: cardName,
       link: cardSrc
     });
