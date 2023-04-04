@@ -1,4 +1,5 @@
 .element__photo {
+  background-color: black;
   object-fit: cover;
   object-position: center;
   height: 282px;

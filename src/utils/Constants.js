@@ -1,30 +1,10 @@
-export const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+export const options = {
+  url: 'https://mesto.nomoreparties.co/v1/cohort-62',
+  headers: {
+    authorization: 'aeed9d86-5904-46bf-9ebc-2bd545ca66e7',
+    'Content-Type': 'application/json',
   },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
+};
 
 export const formValidationConfig = {
   inputSelector: '.popup__input',
@@ -44,6 +24,9 @@ export const formElement = document.querySelector('#popup-edit-form');
 export const popupAddOpenButtonElement = document.querySelector('.profile__add-button');
 export const cardList = '.elements';
 export const formAddElement = document.querySelector('#popup-add-form');
+export const formAvatarElement = document.querySelector('#popup-new-avatar-form');
+export const profileAvatarElement = document.querySelector('.profile__avatar');
+export const popupChangeAvatarButton = document.querySelector('.profile__container-avatar');
 
 
 
