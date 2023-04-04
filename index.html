@@ -2,13 +2,15 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="html, css">
     <meta
       name="mesto"
       content="портфолио Ханбегова Егора-Хаджи на Яндекс.Практикуме">
     <meta name="author" content="Ханбегов Егор-Хаджи">
     <title>Место</title>
-  <script defer src="main.5e5835ac2a21213915b4.js"></script><link href="main.css" rel="stylesheet"></head>
+  <script defer src="main.b6455e59462a7158ac4a.js"></script><link href="main.css" rel="stylesheet"></head>
   <body class="page">
     <header class="header">
       <img src="images/header__logo.bbe2a6eafac19c3d031c.svg" alt="логотип" class="header__logo">
@@ -16,19 +18,18 @@
     <main class="content page__content">
       <section class="profile content__section">
         <div class="profile__card">
-          <img
-          src="images/profile__image.74c3c0fb802dcfa83abb.jpg"
-          alt="аватарка"
-          class="profile__avatar">
+          <button class="profile__container-avatar" type="button">
+          <img src="#" alt="аватарка" class="profile__avatar">
+          </button>
           <div class="profile__info">
             <div class="profile__row">
-              <h1 class="profile__name">Жак-Ив Кусто</h1>
-              <button class="profile__edit-button" type="button"></button>
+              <h1 class="profile__name"></h1>
+              <button name='popup-edit-open' class="profile__edit-button" type="button"></button>
             </div>
-            <p class="profile__characteristic">Исследователь океана</p>
+            <p class="profile__characteristic"></p>
           </div>
         </div>
-        <button class="profile__add-button" type="button"></button>
+        <button name='popup-add-open' class="profile__add-button" type="button"></button>
       </section>
       <section class="elements"></section>
     </main>
@@ -97,20 +98,7 @@
         </form>
       </div>
     </section>
-    <template class="template" id="template-card">
-      <article class="element">
-        <img
-          src="#"
-          alt=" "
-          class="element__photo">
-          <button class="element__button-delete" type="button"></button>
-        <div class="element__place">
-          <h2 class="element__place-name"></h2>
-          <button class="element__button-like" type="button"></button>
-        </div>
-      </article>
-    </template>
-    <section class="popup popup_type_photo" id="popup-photo">
+    <section class="popup popup_type_photo" id="popup-photo" name = "popup-photo">
       <figure class="popup__figure">
       <button class="popup__close-button" type="button"></button>
       <img
@@ -120,5 +108,51 @@
       <figcaption class="popup__figcaption"></figcaption>
       </figure>
     </section>
+    <section class="popup popup_type_new-avatar" name="popup-new-avatar">
+      <div class="popup__edit-container">
+        <button class="popup__close-button" type="button"></button>
+        <h2 class="popup__text">Обновить аватар</h2>
+        <form class = 'popup__form' name="popup-new-avatar-form" id="popup-new-avatar-form"  novalidate>
+          <input
+          type="url"
+          class="popup__input popup__input_type_name"
+          id="change-new-avatar"
+          placeholder="Ссылка на картинку"
+          name="newAvatar"
+          minlength="2"
+          maxlength="infinity"
+          required>
+          <span class='popup__error' id="change-new-avatar-error"></span>
+          <button class="popup__button-saved" id="button-save-avatar" type="submit">
+            Сохранить
+          </button>
+        </form>
+      </div>
+    </section>
+    <section class="popup popup_type_delete-card" name="popup-delete-card">
+      <div class="popup__edit-container">
+        <button class="popup__close-button" type="button"></button>
+        <form class="popup__form">
+          <h2 class="popup__text popup__text_type_delete-card">Вы уверены?</h2>
+          <button class="popup__button-saved popup__button-saved_delete-card" id="button-yes" type="submit">Да</button>
+        </form>
+      </div>
+    </section>
+    <template class="template" id="template-card">
+      <article class="element">
+        <img
+          src="#"
+          alt=" "
+          class="element__photo">
+          <button class="element__button-delete" type="button"></button>
+        <div class="element__place">
+          <h2 class="element__place-name"></h2>
+          <div class="element__like">
+            <button class="element__button-like" type="button"></button>
+            <p class="element__counter">0</p>
+          </div>
+        </div>
+      </article>
+    </template>
   </body>
 </html>
