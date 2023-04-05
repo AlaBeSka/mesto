@@ -109,6 +109,7 @@ Promise.all([api.getInfoProfile(), api.getInitialCards()])
 
 const popupAddCard = new PopupWithForm ('#popup-add', {
   handleSubmitForm: ({cardName, cardSrc}) => {
+    popupAddCard.profileLoading(true);
     api
     .createCard({name: cardName, link: cardSrc})
     .then((mesto) => {
@@ -117,17 +118,20 @@ const popupAddCard = new PopupWithForm ('#popup-add', {
       popupAddCard.close();
     })
     .catch(console.log)
+    .finally(() => popupAddCard.profileLoading(false))
   }
 });
 popupAddCard.setEventListeners();
 
 //button for open popupAddCard
 
-popupAddOpenButtonElement.addEventListener('click', () => {
+function handleAddOpenButtonClick() {
   formValidCard.disableSubmitButton();
   popupAddCard.open();
   formAddElement.reset();
-});
+}
+
+popupAddOpenButtonElement.addEventListener('click', handleAddOpenButtonClick);
 
 // edit profile
 
@@ -148,11 +152,13 @@ popupEditProfile.setEventListeners();
 
 // button for open popupEditProfile
 
-popupOpenButtonElement.addEventListener('click', () =>{
+function handleEditOpenButtonClick() {
   popupEditProfile.setValueInput(user.getUserInfo());
   formValidProfile.disableSubmitButton();
   popupEditProfile.open();
-});
+}
+
+popupOpenButtonElement.addEventListener('click', handleEditOpenButtonClick);
 
 // popup for change avatar
 
@@ -173,10 +179,12 @@ popupChangeAvatar.setEventListeners();
 
 //button for open popupChangeAvatar
 
-popupChangeAvatarButton.addEventListener('click', () => {
+function handleChangeAvatarButtonClick() {
   formValidAvatar.disableSubmitButton();
   popupChangeAvatar.open();
-})
+}
+
+popupChangeAvatarButton.addEventListener('click', handleChangeAvatarButtonClick);
 
 // delete card
 
